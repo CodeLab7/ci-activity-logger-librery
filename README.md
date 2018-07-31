@@ -2,28 +2,34 @@
 
 [![N|CodeLab7](https://avatars0.githubusercontent.com/u/39191324?s=200&v=4)](https://codelab7.com)
 
-Activity Log Library is Codeigniter based Library which can be helpful record Activity on a website and Get Results for reporting
+Activity Log is a Codeigniter library used to record activity on a website and to fetch the results for reporting purposes. 
 
-  - Easy to Use
-  - Simple Sentences for Add & Retrieve Log
-  - Standalone Librery for any kind of website
+  - Is easy to Use
+  - Simple syntax for adding and fetching records
+  - Standalone library for use on any kind of website
 
 ### Installation
 
-Dillinger requires [Codeigniter](https://codeigniter.com) v3 to run.
+Dillinger requires [Codeigniter](https://codeigniter.com) version 3 to run.
 
-- Copy Library into your `/application/library` Folder.
-- Import logger.sql into your database.
-- You are ready to go
+- Copy library (Logger.php) into your `/application/library` folder.
+- Import logger.sql into your database (or manually create the table).
 
-You can create Table as follow
+To manually create the table run the following command in your MySql command prompt:
+
 ```sql
-CREATE TABLE `logger` (  `id` bigint(20) NOT NULL AUTO_INCREMENT,  `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,  `created_by`int(11) NOT NULL,  `type` varchar(255) NOT NULL,  `type_id` bigint(20) NOT NULL,  `token` varchar(255) NOT NULL, `comment` text NOT NULL );
+CREATE TABLE `logger` (  `id` bigint(20) NOT NULL AUTO_INCREMENT,  
+    `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,  
+    `created_by`int(11) NOT NULL,  
+    `type` varchar(255) NOT NULL,  
+    `type_id` bigint(20) NOT NULL,  
+    `token` varchar(255) NOT NULL, 
+    `comment` text NOT NULL );
 
 ALTER TABLE `logger`  ADD PRIMARY KEY (`id`);
 ```
 
-You can change in table fields name,  to alter the following line into a library
+You can change the field names in the library by altering the following lines in Logger.php
 
 ```php
 private $table_fields = array(
@@ -37,12 +43,14 @@ private $table_fields = array(
   );
 ```
 
-### Uses
-Inclide Librery with this code where you want to use.
+### Loading
+To load the logger library add the following
+
 ```php
 $this->load->library('logger');
 ```
 
+### Use 
 **Log Activity**
 ```php
 $this->logger
@@ -52,6 +60,7 @@ $this->logger
      ->token('delete') //Token identify Action
      ->log(); //Add Database Entry
 ```
+
 **Get Entry**
 ```php
 $this->logger
@@ -63,16 +72,13 @@ $this->logger
 ```
 
 ### Development
+Want to contribute? Great! Just fork, clone, and start working, submit a pull request when you are ready.
+Or You can join our team at [codelab7](https://codelab7.com)
 
-Want to contribute? Great! Just pull repo and start work, Submit when you satisfy.
-Or You can Join our team at [codelab7](https://codelab7.com)
+### Todo(s)
 
-
-
-### Todos
-
- - Advance Testing
- - Add Other Important Fields
+ - Advance testing
+ - Add other important fields
 
 License
 ----
