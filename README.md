@@ -10,7 +10,7 @@ Activity Log is a Codeigniter library used to record activity on a website and t
 
 ### Installation
 
-Dillinger requires [Codeigniter](https://codeigniter.com) version 3 to run.
+Logger requires [Codeigniter](https://codeigniter.com) version 3 to run.
 
 - Copy library (Logger.php) into your `/application/library` folder.
 - Import logger.sql into your database (or manually create the table).
